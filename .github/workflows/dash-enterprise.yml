@@ -15,12 +15,12 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_DEPLOY_KEY }}
-          known_hosts: '[dash-dev.selfservice.shell.ai]:3022'
-#          config: ${{ secrets.CONFIG }} # ssh_config; optional
+          known_hosts: ${{ secrets.KNOWN_HOST }}
+          config: ${{ secrets.CONFIG }} # ssh_config; optional
 #          name: github_actions
-          config: |
-            Host dash-dev.selfservice.shell.ai
-                Port 3022
+#          config: |
+#            Host dash-dev.selfservice.shell.ai
+#                Port 3022
 #            IdentityFile /home/runner/.ssh/id_rsa
       - name: check ssh
         run: |
