@@ -10,10 +10,8 @@ jobs:
     replicate-file:
         runs-on: ubuntu-latest
         name: Replicate File
-
-        steps:
     steps:
-        - name: executing remote ssh commands using password
+        - name: executing remote ssh commands
           uses: appleboy/ssh-action@v0.1.7
           with:
             host: ${{ secrets.HOST }}
