@@ -1,0 +1,12 @@
+.pytest_cache
+# User-specific files
+
+#Notebook checkpoints
+.ipynb_checkpoints
+
+.DS_Store
+.idea
+__pycache__
+.venv
+.vscode
+temp/

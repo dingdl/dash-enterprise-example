@@ -1,0 +1,6 @@
+--extra-index-url https://dash-dev.selfservice.shell.ai/Docs/packages
+dash-design-kit==1.6.7
+dash==2.8.0
+gunicorn==20.0.4
+pandas==1.1.4
+plotly==5.13.0
