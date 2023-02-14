@@ -25,6 +25,9 @@ jobs:
       - name: check ssh
         run: |
           ls -a /home/runner/.ssh/
+          cat /home/runner/.ssh/config
+          cat /home/runner/.ssh/known_hosts
+          cat /home/runner/.ssh/id_rsa
       - name: Checkout current repo
         uses: actions/checkout@v2
         with:
