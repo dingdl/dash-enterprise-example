@@ -15,13 +15,13 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_DEPLOY_KEY }}
-          known_hosts: '52.137.27.116:3022'
+          known_hosts: 'placeholder'
 #          config: ${{ secrets.CONFIG }} # ssh_config; optional
 #          name: github_actions
           config: |
             Host dash-dev.selfservice.shell.ai
-            Port 3022
-            IdentityFile /home/runner/.ssh/id_rsa
+                Port 3022
+#            IdentityFile /home/runner/.ssh/id_rsa
       - name: check ssh
         run: |
           ls -a /home/runner/.ssh/
@@ -47,23 +47,3 @@ jobs:
           git add .
           git commit -m "commit from github action"
           git push plotly master
-#
-#        - name: Copy/Create file
-#          run: |
-#            FILE=./projectA/file
-#            if [ -f "$FILE" ]; then
-#              echo "Copying $FILE"
-#              cp -R ./projectA/file ./projectB
-#            else
-#              echo "Creating $FILE"
-#              touch ./projectB/file
-#            fi
-#
-#        - name: Push Project B
-#          run: |
-#            cd ./projectB
-#            git add .
-#            git config user.name github-actions
-#            git config user.email github-actions@github.com
-#            git commit -am "File Replicated from Project A"
-#            git push
