@@ -16,12 +16,12 @@ jobs:
         with:
           key: ${{ secrets.SSH_DEPLOY_KEY }}
           known_hosts: '52.137.27.116:3022'
-          config: ${{ secrets.CONFIG }} # ssh_config; optional
+#          config: ${{ secrets.CONFIG }} # ssh_config; optional
 #          name: github_actions
-#          config: |
-#            Host dash-dev.selfservice.shell.ai
-#            Port 3022
-#            IdentityFile ~/.ssh/github_actions
+          config: |
+            Host dash-dev.selfservice.shell.ai
+            Port 3022
+            IdentityFile /home/runner/.ssh/id_rsa
       - name: check ssh
         run: |
           ls -a /home/runner/.ssh/
