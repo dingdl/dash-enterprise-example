@@ -7,36 +7,36 @@ on:
     branches: [ master ]
 
 jobs:
-    replicate-file:
-        runs-on: ubuntu-latest
-        name: Replicate File
+    build:
+      name: Build
+      runs-on: ubuntu-latest
     steps:
-        - name: executing remote ssh commands using ssh key
-          uses: appleboy/ssh-action@v0.1.7
-          with:
-            host: ${{ secrets.HOST }}
-            port: ${{ secrets.PORT }}
-            key: ${{ secrets.SSH_DEPLOY_KEY }}
-            script: whoami
-        - name: Checkout Project A
-          uses: actions/checkout@v2
-          with:
-            path: ./projectA
-        - name: Checkout Project B
-          run: |
-            ls ./projectA
-            mkdir ./plotly_project_folder
-            cp -R ./projectA/app.py ./plotly_project_folder
-            cd ./plotly_project_folder
-            git init
-            git config --global user.email "ding.luo@shell.com"
-            git config --global user.name "Ding Luo"
-            git remote add plotly ssh://dokku@dash-dev.selfservice.shell.ai:3022/mining-sites-dashboard
-            git status
-            git diff
-            git add .
-            git commit -m "commit from github action"
-            git push plotly master
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSH_DEPLOY_KEY }}
+          script: whoami
+#        - name: Checkout Project A
+#          uses: actions/checkout@v2
+#          with:
+#            path: ./projectA
+#        - name: Checkout Project B
+#          run: |
+#            ls ./projectA
+#            mkdir ./plotly_project_folder
+#            cp -R ./projectA/app.py ./plotly_project_folder
+#            cd ./plotly_project_folder
+#            git init
+#            git config --global user.email "ding.luo@shell.com"
+#            git config --global user.name "Ding Luo"
+#            git remote add plotly ssh://dokku@dash-dev.selfservice.shell.ai:3022/mining-sites-dashboard
+#            git status
+#            git diff
+#            git add .
+#            git commit -m "commit from github action"
+#            git push plotly master
 #
 #        - name: Copy/Create file
 #          run: |
