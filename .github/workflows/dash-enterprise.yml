@@ -23,8 +23,8 @@ jobs:
 #            Port 3022
 #            IdentityFile ~/.ssh/github_actions
       - name: check ssh
-          run: |
-            ls -a /home/runner/.ssh/
+        run: |
+          ls -a /home/runner/.ssh/
       - name: Checkout current repo
         uses: actions/checkout@v2
         with:
