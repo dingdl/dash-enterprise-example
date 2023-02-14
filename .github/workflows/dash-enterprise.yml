@@ -16,11 +16,12 @@ jobs:
         with:
           key: ${{ secrets.SSH_DEPLOY_KEY }}
           known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
-          name: github_actions
-          config: |
-            Host dash-dev.selfservice.shell.ai
-            Port 3022
-            IdentityFile ~/.ssh/github_actions
+          config: ${{ secrets.CONFIG }} # ssh_config; optional
+#          name: github_actions
+#          config: |
+#            Host dash-dev.selfservice.shell.ai
+#            Port 3022
+#            IdentityFile ~/.ssh/github_actions
       - name: Checkout current repo
         uses: actions/checkout@v2
         with:
