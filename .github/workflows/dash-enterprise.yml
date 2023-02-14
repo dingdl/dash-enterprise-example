@@ -12,10 +12,13 @@ jobs:
         name: Replicate File
 
         steps:
-        - name: Install SSH Key
-          uses: webfactory/ssh-agent@v0.5.4
+    steps:
+        - name: executing remote ssh commands using password
+          uses: appleboy/ssh-action@v0.1.7
           with:
-            ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+            host: ${{ secrets.HOST }}
+            port: ${{ secrets.PORT }}
+        script: whoami
         - name: Checkout Project A
           uses: actions/checkout@v2
           with:
