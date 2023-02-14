@@ -11,12 +11,13 @@ jobs:
         runs-on: ubuntu-latest
         name: Replicate File
     steps:
-        - name: executing remote ssh commands
+        - name: executing remote ssh commands using ssh key
           uses: appleboy/ssh-action@v0.1.7
           with:
             host: ${{ secrets.HOST }}
             port: ${{ secrets.PORT }}
-        script: whoami
+            key: ${{ secrets.SSH_DEPLOY_KEY }}
+            script: whoami
         - name: Checkout Project A
           uses: actions/checkout@v2
           with:
