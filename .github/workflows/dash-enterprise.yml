@@ -12,9 +12,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: install SSH
-        uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+        - uses: actions/checkout@v3
+        - uses: webfactory/ssh-agent@v0.7.0
+          with:
+            ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
 #      - name: Install SSH key of bastion
 #        uses: shimataro/ssh-key-action@v2
 #        with:
