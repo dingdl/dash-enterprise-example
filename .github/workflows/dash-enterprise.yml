@@ -43,6 +43,8 @@ jobs:
           ls ./original_folder
           mkdir ./plotly_project_folder
           cp -R ./original_folder/app.py ./plotly_project_folder
+          cp -R ./original_folder/Procfile ./plotly_project_folder
+          cp -R ./original_folder/requirements.txt ./plotly_project_folder
           cd ./plotly_project_folder
           git init
           git config --global user.email "ding.luo@shell.com"
@@ -53,12 +55,3 @@ jobs:
           git add .
           git commit -m "commit from github action"
           git push plotly master
-#          echo "# second_repo" >> README.md
-#          git init
-#          git config --local user.email "luo.ding@outlook.com"
-#          git config --local user.name "Ding Luo"
-#          git add README.md
-#          git commit -m "first commit"
-#          git branch -M main
-#          git remote add origin git@github.com:dingdl/second_repo.git
-#          git push -u origin main
