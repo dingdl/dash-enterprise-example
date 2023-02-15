@@ -30,8 +30,8 @@ jobs:
         run: |
           echo "${{ secrets.CONFIG }}" >> /home/runner/.ssh/config
           ls -a /home/runner/.ssh/
-#          cat /home/runner/.ssh/config
-#          cat /home/runner/.ssh/known_hosts
+          cat /home/runner/.ssh/config
+          cat /home/runner/.ssh/known_hosts
 #          cat /home/runner/.ssh/id_rsa
       - name: Checkout current repo
         uses: actions/checkout@v2
