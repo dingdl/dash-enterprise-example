@@ -14,8 +14,8 @@ jobs:
 #        - uses: actions/checkout@v3
         # Make sure the @v0.7.0 matches the current version of the action
       - uses: webfactory/ssh-agent@v0.7.0
-          with:
-              ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+            ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
 #      - name: Install SSH key of bastion
 #        uses: shimataro/ssh-key-action@v2
 #        with:
