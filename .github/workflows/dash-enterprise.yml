@@ -12,9 +12,11 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
+        # Make sure the @v0.7.0 matches the current version of the action
         - uses: webfactory/ssh-agent@v0.7.0
           with:
-            ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+              ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+            # ... other steps
 #      - name: Install SSH key of bastion
 #        uses: shimataro/ssh-key-action@v2
 #        with:
@@ -27,12 +29,12 @@ jobs:
 #            Host dash-dev.selfservice.shell.ai
 #                Port 3022
 #            IdentityFile /home/runner/.ssh/id_rsa
-      - name: check ssh
-        run: |
-          ls -a /home/runner/.ssh/
-          cat /home/runner/.ssh/config
-          cat /home/runner/.ssh/known_hosts
-          cat /home/runner/.ssh/id_rsa
+#      - name: check ssh
+#        run: |
+#          ls -a /home/runner/.ssh/
+#          cat /home/runner/.ssh/config
+#          cat /home/runner/.ssh/known_hosts
+#          cat /home/runner/.ssh/id_rsa
       - name: Checkout current repo
         uses: actions/checkout@v2
         with:
