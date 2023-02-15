@@ -11,13 +11,17 @@ jobs:
       name: Build
       runs-on: ubuntu-latest
       steps:
-      - name: Install SSH key of bastion
-        uses: shimataro/ssh-key-action@v2
+      - name: install SSH
+        uses: webfactory/ssh-agent@v0.7.0
         with:
-          key: ${{ secrets.SSH_DEPLOY_KEY }}
-          known_hosts: 'placeholder'
-#          known_hosts: ${{ secrets.KNOWN_HOST }}
-          config: ${{ secrets.CONFIG }} # ssh_config; optional
+          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
+#      - name: Install SSH key of bastion
+#        uses: shimataro/ssh-key-action@v2
+#        with:
+#          key: ${{ secrets.SSH_DEPLOY_KEY }}
+#          known_hosts: 'placeholder'
+##          known_hosts: ${{ secrets.KNOWN_HOST }}
+#          config: ${{ secrets.CONFIG }} # ssh_config; optional
 #          name: github_actions
 #          config: |
 #            Host dash-dev.selfservice.shell.ai
