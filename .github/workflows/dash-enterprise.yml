@@ -34,6 +34,7 @@ jobs:
           git config --global user.email "ding.luo@shell.com"
           git config --global user.name "Ding Luo"
           git remote add plotly dokku@dash-dev.selfservice.shell.ai:new-test-app
+          git pull plotly master
           git status
           git diff
           git add .
