@@ -16,6 +16,7 @@ jobs:
             ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
       - name: check ssh
         run: |
+          echo "${{ secrets.CONFIG }}" >> /home/runner/.ssh/config
           echo "${{ secrets.KNOWN_HOST }}" >> /home/runner/.ssh/known_hosts
       - name: Checkout current repo
         uses: actions/checkout@v2
