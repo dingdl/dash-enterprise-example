@@ -6,7 +6,7 @@ app = Dash(__name__)
 server = app.server
 app.layout = html.Div(
     children=html.H1(
-        children=['This is a Dash app!']
+        children=['This Dash App has been updated!']
     )
 )
 

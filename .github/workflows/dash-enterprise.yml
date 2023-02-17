@@ -14,26 +14,10 @@ jobs:
       - uses: webfactory/ssh-agent@v0.7.0
         with:
             ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
-#      - name: Install SSH key of bastion
-#        uses: shimataro/ssh-key-action@v2
-#        with:
-#          key: ${{ secrets.SSH_DEPLOY_KEY }}
-#          known_hosts: 'placeholder'
-##          known_hosts: ${{ secrets.KNOWN_HOST }}
-#          config: ${{ secrets.CONFIG }} # ssh_config; optional
-#          name: github_actions
-#          config: |
-#            Host dash-dev.selfservice.shell.ai
-#                Port 3022
-#            IdentityFile /home/runner/.ssh/id_rsa
       - name: check ssh
         run: |
-          echo "${{ secrets.CONFIG }}" >> /home/runner/.ssh/config
+#          echo "${{ secrets.CONFIG }}" >> /home/runner/.ssh/config
           echo "${{ secrets.KNOWN_HOST }}" >> /home/runner/.ssh/known_hosts
-          ls -a /home/runner/.ssh/
-          cat /home/runner/.ssh/config
-          cat /home/runner/.ssh/known_hosts
-#          cat /home/runner/.ssh/id_rsa
       - name: Checkout current repo
         uses: actions/checkout@v2
         with:
